@@ -883,7 +883,9 @@ p + p { margin-top: 14px; }
     border-bottom: 1px solid var(--mist);
     font-size: .92rem;
   }
-  .table--officers tr td:last-child { border-bottom: none; }
+  .table--officers td:nth-child(n+3):empty { display: none; }
+  .table--officers tr td:last-child,
+  .table--officers tr td:nth-last-child(1 of :not(:empty)) { border-bottom: none; }
   .table--officers td::before {
     content: attr(data-label);          /* 「役職」「氏名」などのラベル */
     color: var(--indigo);

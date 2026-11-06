@@ -12,3 +12,7 @@
 @media (min-width: 960px) {
   .article__ttl--mongolia { font-size: 1.25rem; letter-spacing: -.02em; }
 }
+
+@media (min-width: 1100px) {
+  .company-establishment-lead { font-size: 0.9375rem; }
+}
