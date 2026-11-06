@@ -170,11 +170,13 @@ p + p { margin-top: 14px; }
 .table--officers td { font-size: .9rem; }
 @media (min-width: 821px) {
   .table--officers { table-layout: fixed; }
-  .table--officers th:nth-child(1) { width: 27%; }
-  .table--officers th:nth-child(2) { width: 23%; }
-  .table--officers th:nth-child(3) { width: 30%; }
+  .table-scroll .table--officers { min-width: 960px; }
+  .table--officers th:nth-child(1) { width: 23%; }
+  .table--officers th:nth-child(2) { width: 19%; }
+  .table--officers th:nth-child(3) { width: 38%; }
   .table--officers th:nth-child(4) { width: 20%; }
   .table--officers td { overflow-wrap: anywhere; }
+  .table--officers td:nth-child(3) { white-space: nowrap; }
 }
 .table-scroll { overflow-x: auto; }
 .table-scroll .table { min-width: 720px; }
