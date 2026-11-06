@@ -1,0 +1,14 @@
+
+.revision-banner{background:#fff3d6;color:#513900;border-bottom:1px solid #dbbb70;padding:14px 0;font-size:14px;line-height:1.8}.revision-banner a{text-decoration:underline;color:inherit}.review-note{background:#fff8e8;border:1px solid #d8b76a;border-left:4px solid #b18228;padding:20px;margin:24px 0;line-height:1.9;color:#513900}.review-note p{margin:8px 0 0}.review-pending{color:#765817;font-size:.9em}.report-hero{margin:28px 0}.report-hero img,.report-gallery img{display:block;width:100%;height:auto;border-radius:4px}.report-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:28px 0}.report-gallery figure{margin:0}.report-gallery figcaption,.report-hero figcaption{font-size:14px;line-height:1.7;margin-top:10px}.review-links{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}.review-links a{padding:10px 16px;border:1px solid #c4ccd2;text-decoration:underline}.review-list li{margin-bottom:12px;line-height:1.9}.draft-quote{padding:20px;border-left:3px solid #c4ccd2;background:#f6f8f9;margin:20px 0}.article__body h2{scroll-margin-top:120px}@media(max-width:640px){.report-gallery{grid-template-columns:1fr}.review-note{padding:16px}.revision-banner{font-size:13px}}
+
+/* 訪問写真は同じ比率の枠で表示する */
+.report-gallery img {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (min-width: 960px) {
+  .article__ttl--mongolia { font-size: 1.25rem; letter-spacing: -.02em; }
+}
