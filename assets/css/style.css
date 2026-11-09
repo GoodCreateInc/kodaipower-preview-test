@@ -166,20 +166,48 @@ p + p { margin-top: 14px; }
   color: var(--ink);
   background: var(--mist);
 }
-.table--officers th { width: auto; background: var(--ink); color: #fff; white-space: nowrap; }
-.table--officers td { font-size: .9rem; }
-@media (min-width: 821px) {
-  .table--officers { table-layout: fixed; }
-  .table-scroll .table--officers { min-width: 960px; }
-  .table--officers th:nth-child(1) { width: 23%; }
-  .table--officers th:nth-child(2) { width: 19%; }
-  .table--officers th:nth-child(3) { width: 38%; }
-  .table--officers th:nth-child(4) { width: 20%; }
-  .table--officers td { overflow-wrap: anywhere; }
-  .table--officers td:nth-child(3) { white-space: nowrap; }
-}
+/* 役員一覧 */
 .table-scroll { overflow-x: auto; }
-.table-scroll .table { min-width: 720px; }
+.table-scroll .table--officers {
+  min-width: 0;
+  max-width: 720px;
+  table-layout: fixed;
+}
+.table--officers thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.table--officers tbody tr:nth-child(odd) { background: #f0f2f5; }
+.table--officers td {
+  padding: 14px clamp(12px, 3vw, 38px);
+  color: var(--ink);
+  vertical-align: middle;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.table--officers td:first-child {
+  width: 44%;
+  font-size: clamp(.875rem, 2.6vw, 1.05rem);
+  font-weight: 700;
+}
+.table--officers td + td {
+  position: relative;
+  font-size: clamp(.95rem, 3vw, 1.2rem);
+  font-weight: 700;
+}
+.table--officers td + td::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 2px;
+  height: 1em;
+  transform: translateY(-50%);
+  background: var(--gold);
+}
 
 /* ---------- ヘッダー ---------- */
 .header {
@@ -859,42 +887,8 @@ p + p { margin-top: 14px; }
   .table th { border-bottom: none; }
   .table td { padding-top: 12px; }
 
-  /* 役員一覧（スマホ）
-     横スクロールをやめ、1名 = 1カードとして縦に積む。
-     各項目の前に「役職／氏名／…」のラベルを表示して分かりやすくする */
-  .table-scroll { overflow-x: visible; }
-  .table-scroll .table--officers { min-width: 0; }
-  .table--officers thead { display: none; }          /* ヘッダー行は隠す */
-  .table--officers tbody { display: block; }
-  .table--officers tr {
-    display: block;
-    background: #fff;
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    margin-bottom: 16px;
-    padding: 6px 4px;
-  }
-  .table--officers td {
-    display: grid;
-    grid-template-columns: 96px 1fr;   /* ラベル｜内容 の2列 */
-    gap: 12px;
-    align-items: start;
-    padding: 10px 14px;
-    border-bottom: 1px solid var(--mist);
-    font-size: .92rem;
-  }
-  .table--officers td:nth-child(n+3):empty { display: none; }
-  .table--officers tr td:last-child,
-  .table--officers tr td:nth-last-child(1 of :not(:empty)) { border-bottom: none; }
-  .table--officers td::before {
-    content: attr(data-label);          /* 「役職」「氏名」などのラベル */
-    color: var(--indigo);
-    font-size: .78rem;
-    font-weight: 500;
-    padding-top: .15em;
-  }
-  /* 氏名だけ少し大きく見せる */
-  .table--officers td[data-label="氏名"] { font-size: 1.02rem; font-weight: 500; color: var(--ink); }
+  /* 役員一覧はスマホでも役職と氏名を横に並べる */
+  .table--officers td { display: table-cell; width: auto; }
 
   .newslist a, .newslist .nolink {
     grid-template-columns: auto auto;
